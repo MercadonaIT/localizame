@@ -31,5 +31,8 @@
 		"vite": "^4.3.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"xlsx": "^0.18.5"
+	}
 }
