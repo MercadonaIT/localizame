@@ -1,4 +1,4 @@
-import { RawDataType } from './raw-data.interface';
+import type { RawDataType } from './raw-data.interface';
 
 export interface RendererInterface {
 	platform: string;

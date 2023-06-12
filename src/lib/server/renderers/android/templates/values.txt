@@ -1,0 +1,5 @@
+<resources>
+    {{#literals}}
+    <string name="{{key}}">{{value}}</string>
+    {{/literals}}
+</resources>
