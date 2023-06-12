@@ -1,0 +1,3 @@
+{{#literals}}
+"{{key}}" = "{{value}}";
+{{/literals}}
