@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="main">
+    <div class="main__upload"></div>
+    <div class="main__actions"></div>
+</div>
+
+<style lang="scss">
+    .main {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+
+      & > div {
+        width: 100%;
+      }
+    }
+</style>
