@@ -33,6 +33,7 @@
 		background-position: bottom;
 		background-size: contain;
 		background-repeat: no-repeat;
+		cursor: pointer;
 
 		&__title {
 			font-weight: 800;

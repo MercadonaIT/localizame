@@ -1,5 +1,14 @@
 <script lang="ts">
 	import PlatformCard from '$lib/components/platform-card.svelte';
+	import { platformStore } from '../stores/platform.store';
+
+	function addPlatform(platform: string) {
+		platformStore.addPlatform(platform);
+	}
+
+	function removePlatform(platform: string) {
+		platformStore.removePlatform(platform);
+	}
 </script>
 
 <div class="actions">
@@ -9,6 +18,8 @@
 				title="Android"
 				unselectedUrl="images/android-background.svg"
 				selectedUrl="images/android-active-background.svg"
+				on:selected={(isSelected) =>
+					isSelected ? addPlatform('android') : removePlatform('android')}
 			>
 				Generate <strong>XML translate</strong> files for your projects.
 			</PlatformCard>
@@ -16,6 +27,7 @@
 				title="iOS"
 				unselectedUrl="images/ios-background.svg"
 				selectedUrl="images/ios-active-background.svg"
+				on:selected={(isSelected) => (isSelected ? addPlatform('ios') : removePlatform('ios'))}
 			>
 				Generate <strong>Swift</strong> files for your projects.
 			</PlatformCard>

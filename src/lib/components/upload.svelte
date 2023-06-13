@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fileStore } from '$lib/stores/file.store.ts';
+	import { fileStore } from '../stores/file.store.ts';
 
 	let isFileOver = false;
 	let inputElement: HTMLInputElement;
@@ -10,8 +10,8 @@
 		? 'images/upload-file-dark.svg'
 		: 'images/upload-file.svg';
 
-	function uploadFile(file: File) {
-		fileStore.upload(file);
+	function selectFile(file: File) {
+		fileStore.select(file);
 		isFileOver = false;
 	}
 </script>
@@ -20,7 +20,7 @@
 	on:dragenter|preventDefault={() => (isFileOver = true)}
 	on:dragleave|preventDefault={() => (isFileOver = false)}
 	on:dragover|preventDefault={() => (isFileOver = true)}
-	on:drop|preventDefault={(event) => uploadFile(event.dataTransfer.files[0])}
+	on:drop|preventDefault={(event) => selectFile(event.dataTransfer.files[0])}
 	class="upload"
 	class:upload-over={isFileOver}
 >
@@ -28,13 +28,19 @@
 		<img alt="Upload file illustration" src={imageUrl} />
 		{#if $fileStore}
 			<span>{$fileStore.name}</span>
-			<input value="Upload another file" type="button" on:click={fileStore.reset}/>
+			<input value="Upload another file" type="button" on:click={fileStore.reset} />
 		{:else}
 			<span>Drag and drop <span class="upload__outline__highlight">.xlsx</span> file</span>
 			<span>or</span>
-			<input value="Select file" type="button" on:click={() => inputElement.click()}/>
+			<input value="Select file" type="button" on:click={() => inputElement.click()} />
 		{/if}
-		<input id="uploadInput" bind:this={inputElement} type="file" on:change={(event) => uploadFile(event.target.files[0])} accept=".xlsx,.xls"/>
+		<input
+			id="uploadInput"
+			bind:this={inputElement}
+			type="file"
+			on:change={(event) => selectFile(event.target.files[0])}
+			accept=".xlsx,.xls"
+		/>
 	</div>
 </div>
 
@@ -85,7 +91,7 @@
 				border: none;
 			}
 
-			& > input[type=file] {
+			& > input[type='file'] {
 				display: none;
 			}
 		}
@@ -101,7 +107,7 @@
 				color: white;
 			}
 
-			& > label {
+			& > input {
 				background-color: var(--secondary-color);
 				color: white;
 			}
