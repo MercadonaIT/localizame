@@ -1,5 +1,34 @@
+<script lang="ts">
+	import PlatformCard from '$lib/components/platform-card.svelte';
+</script>
+
 <div class="actions">
-	<div class="actions__generate" />
+	<div class="actions__generate">
+		<div class="actions__generate__platforms">
+			<PlatformCard
+				title="Android"
+				unselectedUrl="images/android-background.svg"
+				selectedUrl="images/android-active-background.svg"
+			>
+				Generate <strong>XML translate</strong> files for your projects.
+			</PlatformCard>
+			<PlatformCard
+				title="iOS"
+				unselectedUrl="images/ios-background.svg"
+				selectedUrl="images/ios-active-background.svg"
+			>
+				Generate <strong>Swift</strong> files for your projects.
+			</PlatformCard>
+			<PlatformCard
+				title="Angular"
+				unselectedUrl="images/angular-background.svg"
+				selectedUrl="images/angular-background.svg"
+				disabled={true}
+			>
+				Generate <strong>JSON</strong> files for your projects.
+			</PlatformCard>
+		</div>
+	</div>
 	<div class="actions__links">
 		<div class="actions__links__card">
 			<span>Send us your feedback</span>
@@ -30,6 +59,12 @@
 			background-color: white;
 			border-radius: 24px;
 			padding: 24px;
+
+			&__platforms {
+				height: 100%;
+				display: flex;
+				gap: 24px;
+			}
 		}
 
 		&__links {
