@@ -32,7 +32,7 @@
 		{:else}
 			<span>Drag and drop <span class="upload__outline__highlight">.xlsx</span> file</span>
 			<span>or</span>
-			<input value="Select file" type="button" on:click={inputElement.click}/>
+			<input value="Select file" type="button" on:click={() => inputElement.click()}/>
 		{/if}
 		<input id="uploadInput" bind:this={inputElement} type="file" on:change={(event) => uploadFile(event.target.files[0])} accept=".xlsx,.xls"/>
 	</div>
