@@ -1,31 +1,32 @@
-<div class="app">
-    <Header></Header>
-    <div class="app__content">
-        <slot></slot>
-    </div>
-</div>
-
 <script lang="ts">
-    import Header from '$lib/components/header.svelte'
-    import "@fontsource-variable/roboto-flex"
+	import Header from '$lib/components/header.svelte';
+	import '@fontsource-variable/roboto-flex';
 </script>
 
+<div class="app">
+	<Header />
+	<div class="app__content">
+		<slot />
+	</div>
+</div>
+
 <style lang="scss">
-    :global(body) {
-        margin: 0;
-        --main-color: #009960;
-        --background-color: #EAEAEA;
-    }
+	:global(body) {
+		margin: 0;
+		--main-color: #009960;
+		--background-color: #eaeaea;
+		--secondary-color: #444444;
+	}
 
-    .app {
-        display: flex;
-        flex-direction: column;
-        background-color: var(--background-color);
-        height: 100vh;
+	.app {
+		display: flex;
+		flex-direction: column;
+		background-color: var(--background-color);
+		height: 100vh;
 
-        &__content {
-            height: 100%;
-            overflow: auto;
-        }
-    }
+		&__content {
+			height: 100%;
+			overflow: auto;
+		}
+	}
 </style>
