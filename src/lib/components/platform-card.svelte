@@ -13,6 +13,7 @@
 	$: imgStyle = `background-image: url('${selected ? selectedUrl : unselectedUrl}')`;
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div on:click={() => (selected = !selected)} class:disabled class="platform-card" style={imgStyle}>
 	<span class="platform-card__title">{title}</span>
 	<span class="platform-card__description"><slot /></span>
@@ -49,8 +50,5 @@
 	.disabled {
 		cursor: not-allowed;
 		opacity: 0.3;
-	}
-
-	.selected {
 	}
 </style>

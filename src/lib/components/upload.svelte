@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fileStore } from '../stores/file.store.ts';
+	import { fileStore } from '../stores/file.store';
 
 	let isFileOver = false;
 	let inputElement: HTMLInputElement;
@@ -10,7 +10,7 @@
 		? 'images/upload-file-dark.svg'
 		: 'images/upload-file.svg';
 
-	function selectFile(file: File) {
+	function selectFile(file?: File) {
 		fileStore.select(file);
 		isFileOver = false;
 	}
@@ -20,7 +20,7 @@
 	on:dragenter|preventDefault={() => (isFileOver = true)}
 	on:dragleave|preventDefault={() => (isFileOver = false)}
 	on:dragover|preventDefault={() => (isFileOver = true)}
-	on:drop|preventDefault={(event) => selectFile(event.dataTransfer.files[0])}
+	on:drop|preventDefault={(event) => selectFile(event.dataTransfer?.files[0])}
 	class="upload"
 	class:upload-over={isFileOver}
 >
@@ -38,7 +38,7 @@
 			id="uploadInput"
 			bind:this={inputElement}
 			type="file"
-			on:change={(event) => selectFile(event.target.files[0])}
+			on:change={() => selectFile(inputElement.files?.[0])}
 			accept=".xlsx,.xls"
 		/>
 	</div>

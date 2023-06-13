@@ -5,7 +5,7 @@ function createUserStore() {
 
 	return {
 		subscribe,
-		select: (file: File) => set(file),
+		select: (file?: File) => set(file),
 		reset: () => set(undefined)
 	};
 }
