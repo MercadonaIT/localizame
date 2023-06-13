@@ -35,6 +35,7 @@ export async function POST({ request, url }: RequestEvent) {
 	});
 
 	const zippedCode = await zip(workspaceFolder);
+	await rm(workspaceFolder, { recursive: true, force: true });
 
 	return new Response(zippedCode, { status: 200, headers: { 'Content-Type': 'application/zip' } });
 }
