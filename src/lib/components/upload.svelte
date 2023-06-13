@@ -1,23 +1,40 @@
 <script lang="ts">
+	import { fileStore } from '$lib/stores/file.store.ts';
+
 	let isFileOver = false;
+	let inputElement: HTMLInputElement;
+
+	$: imageUrl = $fileStore
+		? 'images/uploaded-file.svg'
+		: isFileOver
+		? 'images/upload-file-dark.svg'
+		: 'images/upload-file.svg';
+
+	function uploadFile(file: File) {
+		fileStore.upload(file);
+		isFileOver = false;
+	}
 </script>
 
 <div
 	on:dragenter|preventDefault={() => (isFileOver = true)}
 	on:dragleave|preventDefault={() => (isFileOver = false)}
 	on:dragover|preventDefault={() => (isFileOver = true)}
-	on:drop|preventDefault={() => (isFileOver = false)}
+	on:drop|preventDefault={(event) => uploadFile(event.dataTransfer.files[0])}
 	class="upload"
 	class:upload-over={isFileOver}
 >
 	<div class="upload__outline">
-		<img
-			alt="Upload file illustration"
-			src={isFileOver ? 'images/upload-file-dark.svg' : 'images/upload-file.svg'}
-		/>
-		<span>Drag and drop <span class="upload__outline__highlight">.xlsx</span> file</span>
-		<span>or</span>
-		<div class="upload__outline__button">Select file</div>
+		<img alt="Upload file illustration" src={imageUrl} />
+		{#if $fileStore}
+			<span>{$fileStore.name}</span>
+			<input value="Upload another file" type="button" on:click={fileStore.reset}/>
+		{:else}
+			<span>Drag and drop <span class="upload__outline__highlight">.xlsx</span> file</span>
+			<span>or</span>
+			<input value="Select file" type="button" on:click={inputElement.click}/>
+		{/if}
+		<input id="uploadInput" bind:this={inputElement} type="file" on:change={(event) => uploadFile(event.target.files[0])} accept=".xlsx,.xls"/>
 	</div>
 </div>
 
@@ -45,16 +62,6 @@
 				color: var(--main-color);
 			}
 
-			&__button {
-				background-color: var(--main-color);
-				color: white;
-				font-weight: 400;
-				padding: 18px 36px;
-				cursor: pointer;
-				border-radius: 10px;
-				pointer-events: auto;
-			}
-
 			& > img {
 				height: 40%;
 				margin-bottom: 14px;
@@ -63,6 +70,23 @@
 			& > span {
 				font-weight: 200;
 				font-size: 20px;
+			}
+
+			& > input {
+				font-family: 'Roboto Flex Variable', sans-serif;
+				background-color: var(--main-color);
+				color: white;
+				font-weight: 400;
+				font-size: 16px;
+				padding: 18px 36px;
+				cursor: pointer;
+				border-radius: 10px;
+				pointer-events: auto;
+				border: none;
+			}
+
+			& > input[type=file] {
+				display: none;
 			}
 		}
 	}
@@ -77,13 +101,13 @@
 				color: white;
 			}
 
-			&__highlight {
-				color: var(--secondary-color);
-			}
-
-			&__button {
+			& > label {
 				background-color: var(--secondary-color);
 				color: white;
+			}
+
+			&__highlight {
+				color: var(--secondary-color);
 			}
 		}
 	}
