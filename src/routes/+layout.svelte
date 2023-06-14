@@ -16,7 +16,11 @@
 		--main-color: #009960;
 		--background-color: #eaeaea;
 		--secondary-color: #444444;
-		--light-background-color: #F6F5FA;
+		--light-background-color: #f6f5fa;
+	}
+
+	:global(.alert__title) {
+		font-family: 'Roboto Flex Variable', sans-serif;
 	}
 
 	.app {

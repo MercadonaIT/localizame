@@ -83,7 +83,7 @@
 				background-color: var(--main-color);
 				color: white;
 				font-weight: 400;
-				font-size: 16px;
+				font-size: 20px;
 				padding: 18px 36px;
 				cursor: pointer;
 				border-radius: 10px;

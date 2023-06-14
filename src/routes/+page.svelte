@@ -1,6 +1,15 @@
 <script lang="ts">
 	import Upload from '$lib/components/upload.svelte';
 	import Actions from '$lib/components/actions.svelte';
+	import { fileStore } from '$lib/stores/file.store';
+	import { platformStore } from '$lib/stores/platform.store';
+	import { uploadFile } from '$lib/utils/file.utils';
+
+	async function convertFile() {
+		const file = $fileStore as File;
+		const platforms = $platformStore;
+		uploadFile(file, platforms);
+	}
 </script>
 
 <div class="main">
@@ -8,7 +17,7 @@
 		<Upload />
 	</div>
 	<div class="main__actions">
-		<Actions />
+		<Actions on:download={convertFile} />
 	</div>
 </div>
 
