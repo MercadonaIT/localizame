@@ -12,6 +12,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Localízame | Mercadona IT</title>
+</svelte:head>
+
 <div class="main">
 	<div class="main__upload">
 		<Upload />
