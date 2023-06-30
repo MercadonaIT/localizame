@@ -16,7 +16,7 @@ export async function uploadFile(file: File, platforms: string[]) {
 	const formData = new FormData();
 	formData.append('file', file);
 
-	const response = await fetch(`/api/upload-file?platforms=${platforms.join()}`, {
+	const response = await fetch(`/localizame/api/upload-file?platforms=${platforms.join()}`, {
 		method: 'POST',
 		body: formData
 	}).catch();
