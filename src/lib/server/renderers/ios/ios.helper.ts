@@ -1,4 +1,16 @@
+import type { LanguageInterface } from '$lib/server/interfaces/language.interface';
 import type { RawDataType } from '$lib/server/interfaces/raw-data.interface';
+
+export function getLanguageLiteralList(language: LanguageInterface, data: RawDataType[]) {
+	return data.map((row) => ({
+		key: escapeString(Object.values(row)[0]),
+		value: escapeString(row[language.name])
+	}));
+}
+
+export function escapeString(str: string): string {
+	return (str + '').replace(/[\\"']/g, '\\$&').replace(/u0000/g, '\\0');
+}
 
 export function getIosGroupedLiteralList(data: RawDataType[]) {
 	const uniqueGroups = [
