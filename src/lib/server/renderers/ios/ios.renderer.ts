@@ -5,7 +5,8 @@ import {
 	getIosGroupedLiteralList,
 	getLanguageLiteralList
 } from '$lib/server/renderers/ios/ios.helper';
-import { renderFile } from 'template-file';
+import templating from 'template-file';
+import { localizableTemplate, stringsTemplate } from './ios.template';
 
 export async function generateIos(data: RawDataType[], path: string) {
 	await mkdir(path);
@@ -14,15 +15,12 @@ export async function generateIos(data: RawDataType[], path: string) {
 		languageRow.map(async (language) => {
 			await mkdir(`${path}/${language.code}.lproj`);
 			const literals = getLanguageLiteralList(language, data.slice(1));
-			const literalsFile = await renderFile(
-				'src/lib/server/renderers/ios/templates/localizable.txt',
-				{ literals }
-			);
+			const literalsFile = await templating.render(localizableTemplate, { literals });
 			await writeFile(`${path}/${language.code}.lproj/Localizable.strings`, literalsFile);
 		})
 	);
 	const groups = getIosGroupedLiteralList(data.slice(1));
-	const stringsFile = await renderFile('src/lib/server/renderers/ios/templates/strings.txt', {
+	const stringsFile = await templating.render(stringsTemplate, {
 		groups
 	});
 	await writeFile(`${path}/String.swift`, stringsFile);

@@ -1,8 +1,9 @@
 import type { RawDataType } from '../../interfaces/raw-data.interface';
 import { mkdir, writeFile, cp } from 'node:fs/promises';
 import { getLanguageRow } from '../../helpers/xlsx.utils';
-import { renderFile } from 'template-file';
 import { getLanguageLiteralList } from './android.helper';
+import templating from 'template-file';
+import { stringsTemplate } from './android.template';
 
 export async function generateAndroid(data: RawDataType[], path: string) {
 	await mkdir(path);
@@ -11,7 +12,7 @@ export async function generateAndroid(data: RawDataType[], path: string) {
 		languageRow.map(async (language, index) => {
 			const literals = getLanguageLiteralList(language, data.slice(1));
 			const languageCode = language.code.split('-')[0];
-			const fileData = await renderFile('src/lib/server/renderers/android/templates/strings.txt', {
+			const fileData = await templating.render(stringsTemplate, {
 				literals
 			});
 			await mkdir(`${path}/values-${languageCode}`);

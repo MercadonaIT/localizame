@@ -1,4 +1,4 @@
-import UIKit
+export const stringsTemplate = `import UIKit
 protocol Localizable: CustomStringConvertible {
     var rawValue: String { get }
 }
@@ -31,3 +31,8 @@ extension String {
     }
 {{/groups}}
 }
+`;
+
+export const localizableTemplate = `{{#literals}}
+"{{key}}" = "{{value}}";
+{{/literals}}`;

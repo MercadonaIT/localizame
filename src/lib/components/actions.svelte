@@ -107,7 +107,7 @@
 					display: flex;
 					justify-content: flex-end;
 					background-color: var(--light-background-color);
-					background-image: url('images/download-background.svg');
+					background-image: url('/images/download-background.svg');
 					background-size: cover;
 					& > button {
 						background-color: var(--main-color);
@@ -145,11 +145,11 @@
 				justify-content: flex-end;
 
 				&:nth-child(1) {
-					background-image: url('images/feedback-background.svg');
+					background-image: url('/images/feedback-background.svg');
 				}
 
 				&:nth-child(2) {
-					background-image: url('images/jobs-background.svg');
+					background-image: url('/images/jobs-background.svg');
 				}
 
 				background-size: contain;
