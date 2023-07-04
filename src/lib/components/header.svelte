@@ -1,6 +1,6 @@
 <div class="header">
-	<img alt="Mercadona IT logo" src="/images/mercadona-it.svg" />
-	<div class="header__spacer"></div>
+	<img alt="Mercadona IT logo" src="images/mercadona-it.svg" />
+	<div class="header__spacer" />
 	<span>Localízame</span>
 </div>
 
