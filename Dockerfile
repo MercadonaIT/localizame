@@ -1,5 +1,4 @@
 FROM node:lts
-ENV NODE_ENV=production
 
 WORKDIR /app
 COPY ./ /app/
