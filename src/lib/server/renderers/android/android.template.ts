@@ -3,5 +3,4 @@ export const stringsTemplate = `<?xml version="1.0" ?>
     {{#literals}}
     <string name="{{key}}">{{value}}</string>
     {{/literals}}
-</resources>
-`;
+</resources>`;
