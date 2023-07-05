@@ -1,6 +1,6 @@
 import type { RawDataType } from '../../interfaces/raw-data.interface';
 import { mkdir, writeFile, cp } from 'node:fs/promises';
-import { getLanguageRow } from '../../helpers/xlsx.utils';
+import { getLanguageRow } from '../../helpers/xlsx.helper';
 import { getLanguageLiteralList } from './android.helper';
 import templating from 'template-file';
 import { stringsTemplate } from './android.template';

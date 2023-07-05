@@ -7,7 +7,8 @@ import { join } from 'node:path';
 import type { RawDataType } from '$lib/server/interfaces/raw-data.interface';
 import { processAllRenderers } from '$lib/server/helpers/renderer.helper';
 import { zip } from '$lib/server/helpers/zip.helper';
-import { isSheetFile } from '$lib/server/helpers/xlsx.utils';
+import { isSheetFile } from '$lib/server/helpers/xlsx.helper';
+import { RENDERERS } from '$lib/server/const/renderers.const';
 
 export async function POST({ request, url }: RequestEvent) {
 	const length = Number(request.headers.get('content-length'));
@@ -29,7 +30,7 @@ export async function POST({ request, url }: RequestEvent) {
 	const parsedXlsx: RawDataType[] = utils.sheet_to_json(sheets.Sheets[sheets.SheetNames[0]]);
 	const workspaceFolder = await mkdtemp(join(tmpdir(), 'localizame-'));
 
-	await processAllRenderers(platforms, parsedXlsx, workspaceFolder).catch(() => {
+	await processAllRenderers(RENDERERS, platforms, parsedXlsx, workspaceFolder).catch(() => {
 		rm(workspaceFolder, { recursive: true, force: true });
 		throw error(400, 'File might not be formatted properly');
 	});

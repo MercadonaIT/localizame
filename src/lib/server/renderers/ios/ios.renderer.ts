@@ -1,6 +1,6 @@
 import type { RawDataType } from '$lib/server/interfaces/raw-data.interface';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { getLanguageRow } from '$lib/server/helpers/xlsx.utils';
+import { getLanguageRow } from '$lib/server/helpers/xlsx.helper';
 import {
 	getIosGroupedLiteralList,
 	getLanguageLiteralList
