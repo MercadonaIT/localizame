@@ -23,5 +23,5 @@ export async function generateIos(data: RawDataType[], path: string) {
 	const stringsFile = await templating.render(stringsTemplate, {
 		groups
 	});
-	await writeFile(`${path}/String.swift`, stringsFile);
+	await writeFile(`${path}/Strings.swift`, stringsFile);
 }

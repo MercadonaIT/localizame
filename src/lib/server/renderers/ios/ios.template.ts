@@ -30,8 +30,7 @@ extension String {
         {{/literals}}
     }
 {{/groups}}
-}
-`;
+}`;
 
 export const localizableTemplate = `{{#literals}}
 "{{key}}" = "{{value}}";

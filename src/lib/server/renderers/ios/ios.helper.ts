@@ -9,7 +9,10 @@ export function getLanguageLiteralList(language: LanguageInterface, data: RawDat
 }
 
 export function escapeString(str: string): string {
-	return (str + '').replace(/[\\"']/g, '\\$&').replace(/u0000/g, '\\0');
+	return (str + '')
+		.replace(/([’´`])/g, "'")
+		.replace(/([“”])/g, '"')
+		.replace(/(["'])/g, '\\$&');
 }
 
 export function getIosGroupedLiteralList(data: RawDataType[]) {
