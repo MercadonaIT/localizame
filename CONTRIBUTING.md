@@ -28,7 +28,8 @@ The list below are guidelines to use when submitting pull requests. These are th
 - We aim to maintain a high percentage of code coverage in our unit tests. As a general rule of thumb, code changes should not lower the overall code coverage percentage for the project. In practice, this means that **every bug fix and feature addition should include tests.**.
 - We aim to use [ESLint standard config for TypeScript Style Guide](https://github.com/standard/eslint-config-standard-with-typescript) that is based on eslint-config-standard and has TypeScript specific rules from @typescript-eslint/eslint-plugin. With this we try to be more comprehensive and cover a wide range of topics, including best practices for naming conventions, code organization, and documentation. It also includes a set of ESLint rules to help enforce the guide's recommendations... although if you are modifying an existing module, it is more important for the code to be consistent if there are any discrepancies. Using ESLint can assist you in identifying compliance issues. In any case, we don't enforce it and there are exceptions.
 - The Localízame is cross platform and code must work on at least Linux, Windows, and Mac OS X. Avoid platform specific behavior.
-- If you would like to implement support for a significant feature that is not yet available in the Localízame, please talk to us beforehand to avoid any duplication of effort. You can file an [issue](https://github.com/mercadonait/localizame/issues) or also check our [backlog panel](https://github.com/orgs/MercadonaIT/projects/4) to discuss the feature request further.
+- If you would like to implement support for a significant feature that is not yet available in the Localízame, please start a discussion beforehand to avoid any duplication of effort. You can file an [issue](https://github.com/mercadonait/localizame/issues) or also check our [backlog panel](https://github.com/orgs/MercadonaIT/projects/4) to discuss the feature request further.
+- Add yourself to the [AUTHORS](./AUTHORS.md) file
 
 ## Git Commits and Workflow
 
@@ -101,4 +102,4 @@ The latest changes to Localízame are in the `develop` branch on github. The def
 
 Additionally, note that there aren't other package being developed in lockstep with Localízame.
 
-To keep up to date, you will continually have to run the `git clone && npm install` to pull in the latest changes from the develop branch and update your local dependencies.
+To keep up to date, you will continually have to run the `git pull && npm install` to pull in the latest changes from the develop branch and update your local dependencies.
