@@ -1,38 +1,52 @@
-# create-svelte
+# Localízame
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## What is it
 
-## Creating a project
+A very opinionated open-source tool to generate Android, iOS and Angular code, ready to import in your project, from a .xslx template of i18n terms.
 
-If you're seeing this, you've probably already done this step. Congrats!
+You can run it locally as web application, you need to run the back and front.
+
+## Live Demo
+
+[**Fully functional demo**](https://opensource.mercadona.com/localizame)
+
+(Courtesy spot instance at GCP, if it is unresponsive it means it will be rebooting for a minute or two 😄)
+
+## How it works
+
+The way it works is pretty simple, the input is an xlsx file with one sheet. The sheet has different information in each column. The first column are the string keys and the other ones are the translations to different languages, as many as you like.
+
+### Step 1
+
+Drag the file to the load area. [Example input file](./examples/example_input.xlsx)
+
+![Drag the file to the load area](./examples/to_upload.gif)
+
+### Step 2
+
+Select the platforms you'll like to i18n and click download. [Example output file (Android & iOS)](./examples/example_output.zip)
+
+![Drag the file to the load area](./examples/to_download.gif)
+
+And **Bualá!**, the downloaded .zip file contains the code you need to add to your project to consume the translations.
+
+## How to run
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+npm install && npm run dev
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Feedback
 
-## Developing
+If you like to send us feedback, raise an idea or just share how you use it you can use [issues](https://github.com/mercadonait/localizame/issues) to communicate with us and the community.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## License, expertise and contributions
 
-```bash
-npm run dev
+Localízame is developed under the [Apache license](https://github.com/MercadonaIT/localizame/blob/main/LICENSE) therefore you can help to make it grow. We really will love to know from you and have you on board!
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+[Learn how to contribute to Localízame](./CONTRIBUTING.md)
 
-## Building
+## Work with us
 
-To create a production version of your app:
+If you like this project and you want to know more about what we do tell us to [Mercadona IT Opensource](mailto:opensource@mercadona.com)
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+If you want to work with us and help us in our mission apply here: [Mercadona IT Jobs](https://mercadona.avature.net/es_ES/Careers/SearchJobs/IT?3_60_3=243)
