@@ -98,8 +98,6 @@ You might need to do run locally the development version if:
 - You are developing a feature for Localízame and plan on submitting a Pull Request.
 - You want to test the latest changes of Localízame before they make it into an official release.
 
-The latest changes to Localízame are in the `develop` branch on github. The default branch is main, mind this when you clone the git repository if you intend to develop.
-
-Additionally, note that there aren't other package being developed in lockstep with Localízame.
+The latest changes to Localízame are in the `develop` branch on github. 
 
 To keep up to date, you will continually have to run the `git pull && npm install` to pull in the latest changes from the develop branch and update your local dependencies.
