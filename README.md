@@ -44,7 +44,7 @@ We appreciate your feedback, ideas, and how you use Localizame. You can use the 
 
 ## License, Expertise, and Contributions
 
-Localizame is developed under the [Apache License](https://github.com/MercadonaIT/localizame/blob/main/LICENSE), which means you can contribute and help it grow. We would love to hear from you and have you on board!
+Localizame is developed under the [Apache License](./LICENSE), which means you can contribute and help it grow. We would love to hear from you and have you on board!
 
 [Learn how to contribute to Localízame](./CONTRIBUTING.md)
 
