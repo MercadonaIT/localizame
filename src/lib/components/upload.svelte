@@ -33,6 +33,7 @@
 			<span>Drag and drop <span class="upload__outline__highlight">.xlsx</span> file</span>
 			<span>or</span>
 			<input value="Select file" type="button" on:click={() => inputElement.click()} />
+			<a href="files/skeleton.xlsx">(Download skeleton file here)</a>
 		{/if}
 		<input
 			id="uploadInput"
@@ -76,6 +77,12 @@
 			& > span {
 				font-weight: 200;
 				font-size: 20px;
+			}
+
+			& > a {
+				pointer-events: auto;
+				color: var(--secondary-color);
+				text-decoration: none;
 			}
 
 			& > input {
