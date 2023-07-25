@@ -14,6 +14,13 @@
 
 <svelte:head>
 	<title>Localízame | Mercadona IT</title>
+	<meta property="og:title" content="Localizame | Mercadona IT" />
+	<meta
+		property="og:image"
+		content="https://opensource.mercadona.com/localizame/images/screenshot.png"
+	/>
+	<meta property="og:description" content="From xlsx to native i18n for your platform" />
+	<meta property="og:url" content="https://opensource.mercadona.com/localizame" />
 </svelte:head>
 
 <div class="main">
