@@ -91,6 +91,10 @@
 				height: 100%;
 				display: flex;
 				gap: 24px;
+
+				@media (max-width: 1125px) {
+					flex-direction: column;
+				}
 			}
 
 			&__download {
@@ -100,7 +104,12 @@
 					position: absolute;
 					top: 0;
 					left: 30px;
+
+					@media (max-width: 1125px) {
+						display: none;
+					}
 				}
+
 				&__action {
 					border-radius: 24px;
 					padding: 55px 222px;
@@ -109,6 +118,12 @@
 					background-color: var(--light-background-color);
 					background-image: url('/images/download-background.svg');
 					background-size: cover;
+
+					@media (max-width: 1125px) {
+						padding: 55px;
+						justify-content: center;
+					}
+
 					& > button {
 						background-color: var(--main-color);
 						font-family: 'Roboto Flex Variable', sans-serif;
@@ -134,6 +149,10 @@
 			display: flex;
 			gap: 24px;
 
+			@media (max-width: 1125px) {
+				flex-direction: column;
+			}
+
 			&__card {
 				width: 100%;
 				background-color: white;
@@ -143,6 +162,11 @@
 				gap: 13px;
 				padding: 28px 48px;
 				justify-content: flex-end;
+
+				@media (max-width: 1125px) {
+					padding: 28px;
+					width: auto;
+				}
 
 				&:nth-child(1) {
 					background-image: url('/images/feedback-background.svg');

@@ -2,7 +2,7 @@
 	<div class="header__info">
 		<img alt="Mercadona IT logo" src="images/mercadona-it.svg" />
 		<div class="header__info__spacer" />
-		<span>Localízame</span>
+		<span class="header__info__title">Localízame</span>
 	</div>
 	<div class="header__links">
 		<a href="https://github.com/MercadonaIT/localizame" target="_blank">
@@ -27,14 +27,22 @@
 				height: 30px;
 				width: 1px;
 				background-color: black;
+
+				@media (max-width: 1125px) {
+					display: none;
+				}
 			}
 
-			& > span {
+			&__title {
 				display: flex;
 				align-items: center;
 				font-family: 'Roboto Flex Variable', sans-serif;
 				font-size: 24px;
 				font-weight: 700;
+
+				@media (max-width: 1125px) {
+					display: none;
+				}
 			}
 		}
 

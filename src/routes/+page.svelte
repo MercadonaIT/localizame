@@ -40,6 +40,10 @@
 		display: flex;
 		gap: 24px;
 
+		@media (max-width: 1125px) {
+			flex-direction: column;
+		}
+
 		& > div {
 			width: 100%;
 		}

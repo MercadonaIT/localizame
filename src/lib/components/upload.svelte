@@ -71,6 +71,7 @@
 
 			& > img {
 				height: 40%;
+				max-width: 90%;
 				margin-bottom: 14px;
 			}
 

@@ -36,6 +36,10 @@
 		background-repeat: no-repeat;
 		cursor: pointer;
 
+		@media (max-width: 1125px) {
+			background-position: right;
+		}
+
 		&__title {
 			font-weight: 800;
 			font-size: 36px;
