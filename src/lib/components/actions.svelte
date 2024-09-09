@@ -37,8 +37,8 @@
 			<PlatformCard
 				title="Angular"
 				unselectedUrl="images/angular-background.svg"
-				selectedUrl="images/angular-background.svg"
-				disabled={true}
+				selectedUrl="images/angular-active-background.svg"
+				on:selected={({ detail }) => (detail ? addPlatform('angular') : removePlatform('angular'))}
 			>
 				Generate <strong>JSON</strong> files for your projects.
 			</PlatformCard>
