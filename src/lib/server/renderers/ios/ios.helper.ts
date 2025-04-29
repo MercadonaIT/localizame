@@ -10,6 +10,7 @@ export function getLanguageLiteralList(language: LanguageInterface, data: RawDat
 
 export function escapeString(str: string): string {
 	return (str + '')
+		.replaceAll('%value%', '%@')
 		.replace(/([’´`])/g, "'")
 		.replace(/([“”])/g, '"')
 		.replace(/(["'])/g, '\\$&');
